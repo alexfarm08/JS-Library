@@ -11,17 +11,17 @@
     <header>
         <h1>Library</h1>
         <dialog>
-            <form autofocus>
-                <label class="formContent" for="title">Title</label>
-                <input class="formContent" type="text" id="title" name="title">
-                <label class="formContent" for="author">Author</label>
-                <input class="formContent" type="text" id="author" name="author">
-                <label class="formContent" for="pages">Pages</label>
-                <input class="formContent" type="number" id="pages" name="pages">
-                <input class="formContent" type="checkbox" id="read" name="read">
-                <label class="formContent" for="read">Read</label>
+            <section id="labelInput" autofocus>
+                <label class="formContent" id="titleLable" for="title">Title</label>
+                <input class="formContent" id="titleInput" type="text" id="title" name="title">
+                <label class="formContent" id="authorLable" for="author">Author</label>
+                <input class="formContent" id="authorInput" type="text" id="author" name="author">
+                <label class="formContent" id="pagesLable" for="pages">Pages</label>
+                <input class="formContent" id="pagesInput" type="number" id="pages" name="pages">
+                <input class="formContent" id="readInput" type="checkbox" id="read" name="read">
+                <label class="formContent" id="readLabel" for="read">Read</label>
                 <input class="formContent" id="submit" type="submit" value="+ Add Book">
-            </form>
+            </section>
         </dialog>
         <button id="addBooks">+ Add Book</button>
     </header>
