@@ -46,17 +46,22 @@ function displayBooks(myLibrary) {
         const bookCardTitle = document.createElement('p');
         const bookCardAuthor = document.createElement('p');  
         const bookCardPages = document.createElement('p');  
-        const bookCardRead = document.createElement('p'); 
+        const bookCardRead = document.createElement('p');
+        const deleteBookBtn = document.createElement('button');
+        deleteBookBtn.setAttribute('id', `deleteBookBtn${i}`); 
         
         bookCardTitle.textContent = myLibrary[i].title;
         bookCardAuthor.textContent = myLibrary[i].author;
         bookCardPages.textContent = myLibrary[i].pages;
         bookCardRead.textContent = myLibrary[i].read;
+        deleteBookBtn.innerText = "Remove Book";
 
         bookCards.appendChild(bookCardTitle);
         bookCards.appendChild(bookCardAuthor);
         bookCards.appendChild(bookCardPages);
         bookCards.appendChild(bookCardRead);
+        bookCards.appendChild(deleteBookBtn);
+        bookCards.setAttribute('id', `${myLibrary[i].id}`);
 
        const container = document.getElementById('container');
 
@@ -74,7 +79,7 @@ addBookBtn.addEventListener("click", () => {
     dialog.showModal();
 });
 
-// TAKES FORM INPUT AND MAKES NEW BOOK
+// TAKES FORM INPUT AND MAKES NEW BOOK AND DISPLAYS NEW BOOK
 document.getElementById("submit").onclick = function() {
     bookTitle = document.getElementById("titleInput").value;
     bookAuthor = document.getElementById("authorInput").value;
@@ -97,17 +102,22 @@ document.getElementById("submit").onclick = function() {
             const bookCardTitle = document.createElement('p');
             const bookCardAuthor = document.createElement('p');  
             const bookCardPages = document.createElement('p');  
-            const bookCardRead = document.createElement('p'); 
+            const bookCardRead = document.createElement('p');
+            const deleteBookBtn = document.createElement('button');
+            deleteBookBtn.setAttribute('id', `deleteBookBtn${i}`); 
             
             bookCardTitle.textContent = myLibrary[i].title;
             bookCardAuthor.textContent = myLibrary[i].author;
             bookCardPages.textContent = myLibrary[i].pages;
             bookCardRead.textContent = myLibrary[i].read;
+            deleteBookBtn.innerText = "Remove Book";
 
             bookCards.appendChild(bookCardTitle);
             bookCards.appendChild(bookCardAuthor);
             bookCards.appendChild(bookCardPages);
             bookCards.appendChild(bookCardRead);
+            bookCards.appendChild(deleteBookBtn);
+            bookCards.setAttribute('id', `${myLibrary[i].id}`);
 
             const container = document.getElementById('container');
 
@@ -123,3 +133,15 @@ closeForm.addEventListener("click", () => {
 })
 
 displayBooks(myLibrary);
+
+//LOOP ADDS EVENT LISTENER TO ALL DELETE BUTTONS
+for (let j = 0; j < myLibrary.length; j++) {
+    const deletebtn = document.getElementById(`deleteBookBtn${j}`);
+    deletebtn.addEventListener('click', () => {
+        const deleteIndex = document.getElementById(`${myLibrary[j].id}`)
+        console.log(deleteIndex);
+        myLibrary.splice((j), 1);
+        console.log(myLibrary);
+        deleteIndex.parentNode.removeChild(deleteIndex);
+    });
+}
