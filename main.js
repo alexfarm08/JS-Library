@@ -61,4 +61,16 @@ function displayBooks(myLibrary) {
     }
 }
 
+const dialog = document.querySelector("dialog");
+const addBookBtn = document.querySelector("dialog + #addBooks");
+const closeForm = document.querySelector("dialog #submit");
+
+addBookBtn.addEventListener("click", () => {
+    dialog.showModal();
+});
+
+closeForm.addEventListener("click", () => {
+    dialog.close();
+})
+
 displayBooks(myLibrary);
