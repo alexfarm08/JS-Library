@@ -30,10 +30,34 @@ totalNumBooks++;
 addBookToLibary("harry potter3", "jk rolling", 255, "read", myLibary);
 totalNumBooks++;
 
+
 // LOOP OVER ARRAY AND DISPLAY BOOKS
 function displayBooks(myLibary) {
+
     for(let i = 0; i < myLibary.length; i++) {
         console.log(myLibary[i]);
+
+        const bookCards = document.createElement('div');
+
+        const bookCardTitle = document.createElement('p');
+        const bookCardAuthor = document.createElement('p');  
+        const bookCardPages = document.createElement('p');  
+        const bookCardRead = document.createElement('p'); 
+        
+        bookCardTitle.textContent = myLibary[i].title;
+        bookCardAuthor.textContent = myLibary[i].author;
+        bookCardPages.textContent = myLibary[i].pages;
+        bookCardRead.textContent = myLibary[i].read;
+
+        bookCards.appendChild(bookCardTitle);
+        bookCards.appendChild(bookCardAuthor);
+        bookCards.appendChild(bookCardPages);
+        bookCards.appendChild(bookCardRead);
+
+       const containetr = document.getElementById('containetr');
+
+       containetr.appendChild(bookCards);
+
     }
 }
 
