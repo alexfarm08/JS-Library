@@ -1,10 +1,10 @@
-const myLibary = [];
+const myLibrary = [];
 let totalNumBooks = 0;
 
 // BOOK CONSTRUCTOR
 function Book(title, author, pages, read) {
     if (!new.target) {
-        throw Error("you must use the 'new' oporator to call this constructor")
+        throw Error("you must use the 'new' operator to call this constructor")
     }
 
     this.title = title;
@@ -15,27 +15,27 @@ function Book(title, author, pages, read) {
 }
 
 // ADD BOOKS TO ARRAY
-function addBookToLibary(title, author, pages, read, myLibary) {
+function addBookToLibrary(title, author, pages, read, myLibrary) {
     // MAKES NEW BOOK OBJ WITH TITLE FOR NAME
     title = new Book(title, author, pages, read);
 
-    //ADDS NEW BOOK TO LIBARY ARRAY
-    myLibary.push(title)
+    //ADDS NEW BOOK TO LIBRARY ARRAY
+    myLibrary.push(title)
 }
 
-addBookToLibary("harry potter1", "jk rolling", 255, "read", myLibary);
+addBookToLibrary("harry potter1", "jk rolling", 255, "read", myLibrary);
 totalNumBooks++;
-addBookToLibary("harry potter2", "jk rolling", 255, "read", myLibary);
+addBookToLibrary("harry potter2", "jk rolling", 255, "read", myLibrary);
 totalNumBooks++;
-addBookToLibary("harry potter3", "jk rolling", 255, "read", myLibary);
+addBookToLibrary("harry potter3", "jk rolling", 255, "read", myLibrary);
 totalNumBooks++;
 
 
 // LOOP OVER ARRAY AND DISPLAY BOOKS
-function displayBooks(myLibary) {
+function displayBooks(myLibrary) {
 
-    for(let i = 0; i < myLibary.length; i++) {
-        console.log(myLibary[i]);
+    for(let i = 0; i < myLibrary.length; i++) {
+        console.log(myLibrary[i]);
 
         const bookCards = document.createElement('div');
 
@@ -44,21 +44,21 @@ function displayBooks(myLibary) {
         const bookCardPages = document.createElement('p');  
         const bookCardRead = document.createElement('p'); 
         
-        bookCardTitle.textContent = myLibary[i].title;
-        bookCardAuthor.textContent = myLibary[i].author;
-        bookCardPages.textContent = myLibary[i].pages;
-        bookCardRead.textContent = myLibary[i].read;
+        bookCardTitle.textContent = myLibrary[i].title;
+        bookCardAuthor.textContent = myLibrary[i].author;
+        bookCardPages.textContent = myLibrary[i].pages;
+        bookCardRead.textContent = myLibrary[i].read;
 
         bookCards.appendChild(bookCardTitle);
         bookCards.appendChild(bookCardAuthor);
         bookCards.appendChild(bookCardPages);
         bookCards.appendChild(bookCardRead);
 
-       const containetr = document.getElementById('containetr');
+       const container = document.getElementById('container');
 
-       containetr.appendChild(bookCards);
+       container.appendChild(bookCards);
 
     }
 }
 
-displayBooks(myLibary);
+displayBooks(myLibrary);
