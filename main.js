@@ -96,7 +96,7 @@ document.getElementById("submit").onclick = function() {
     else {
         bookRead = "Not Read"
     }
-    
+
     addBookToLibrary(bookTitle, bookAuthor, bookPages, bookRead, myLibrary);
     
     for(let i = 0; i < myLibrary.length; i++) {
@@ -121,6 +121,28 @@ document.getElementById("submit").onclick = function() {
             bookCardRead.textContent = myLibrary[i].read;
             deleteBookBtn.innerText = "Remove Book";
             readBtn.innerText = "Read";
+
+            deleteBookBtn.addEventListener('click', () => {
+                console.log('hi');
+                const deleteIndex = document.getElementById(`${myLibrary[i].id}`)
+                console.log(deleteIndex);
+                myLibrary.splice((i), 1);
+                deleteIndex.parentNode.removeChild(deleteIndex);
+                console.log(myLibrary);
+            });
+
+            readBtn.addEventListener('click', () => {
+            const changeReadText = document.getElementById(`readText${i}`);
+                if (myLibrary[i].read === "Read") {
+                    myLibrary[i].read = "Not Read";
+                    changeReadText.textContent = "Not Read";
+                }
+                else if (myLibrary[i].read === "Not Read") {
+                    myLibrary[i].read = "Read";
+                    changeReadText.textContent = "Read";
+                }
+                    console.log(myLibrary[i].read);
+            });
 
             bookCards.appendChild(bookCardTitle);
             bookCards.appendChild(bookCardAuthor);
@@ -150,6 +172,7 @@ displayBooks(myLibrary);
 for (let j = 0; j < myLibrary.length; j++) {
     const deletebtn = document.getElementById(`deleteBookBtn${j}`);
     deletebtn.addEventListener('click', () => {
+        console.log('hi');
         const deleteIndex = document.getElementById(`${myLibrary[j].id}`)
         console.log(deleteIndex);
         myLibrary.splice((j), 1);
