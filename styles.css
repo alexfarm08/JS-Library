@@ -1,0 +1,170 @@
+/* CSS RESET ADDED */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* STYLE VARS / FONTS / COLORS */
+
+@font-face {
+    font-family: 'sfPro';
+    src: url(fonts/SF-Pro-Text-Regular.otf);
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'sfProRounded';
+    src: url(fonts/SF-Pro-Rounded-Regular.otf);
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    --white: #eeeeee;
+    --ltGr: #e0e0e0;
+    --dkGr: #666666;
+    --black: #000000;
+    --blue: #0088cc;
+    --red: #c70000;
+
+    --fonts: 'sfPro', 'sfProRounded', sans-serif;
+}
+
+/* BODY STYLES */
+
+body {
+    background-color: var(--white);
+    color: var(--black);
+    line-height: 1.6;
+}
+
+main {
+    background-color: var(--ltGr);
+}
+
+header {
+    display: flex;
+    width: 1440px;
+    justify-content: space-evenly;
+    margin: 1rem auto;
+    height: 10vh;
+    align-items: center;
+}
+
+header button:hover{
+    box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important;
+}
+
+#pageTitle {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+button {
+    font-size: 12px;
+    font-family: var(--fonts);
+    text-decoration: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    color: var(--white);
+    display: inline-block;
+    padding: 0.4em 1em;
+    border: 0.1em solid #3e65b3;
+    border-radius: 0.38em;
+    background-image: linear-gradient(#62a6ed, #4b78d6);
+    cursor: pointer;
+}
+
+#container {
+    display: grid;
+    width: 1440px;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 0 auto;
+    height: 80vh;
+    justify-items: center;
+    align-items: center;
+}
+
+.bookCards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.5rem;
+    background-color: var(--white);
+    padding: 1rem;
+    box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important;
+}
+
+.bookCards button {
+    margin: 4px;
+}
+
+.bookCards button:hover {
+    box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    background-color: var(--ltGr);
+    height: 10vh;
+}
+
+a {
+    text-decoration: none;
+    color: var(--black);
+}
+
+a:hover {
+    text-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important;
+    color: var(--blue);
+}
+
+footer p {
+    display: flex;
+}

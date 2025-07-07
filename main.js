@@ -67,6 +67,7 @@ function displayBooks(myLibrary) {
         bookCards.appendChild(deleteBookBtn);
         bookCards.appendChild(readBtn);
         bookCards.setAttribute('id', `${myLibrary[i].id}`);
+        bookCards.setAttribute('class', 'bookCards');
 
        const container = document.getElementById('container');
 
@@ -128,6 +129,7 @@ document.getElementById("submit").onclick = function() {
             bookCards.appendChild(deleteBookBtn);
             bookCards.appendChild(readBtn);
             bookCards.setAttribute('id', `${myLibrary[i].id}`);
+            bookCards.setAttribute('class', 'bookCards')
 
             const container = document.getElementById('container');
 
