@@ -168,3 +168,49 @@ a:hover {
 footer p {
     display: flex;
 }
+
+#labelInput {
+    display: flex;
+    flex-direction: column;
+}
+
+.checkbox {
+    display: flex;
+    justify-content: center;
+}
+
+.formContent {
+    padding: 4px;
+    justify-content: center;
+    font-size: 1.25rem;
+    font-family: var(--fonts);
+}
+
+#labelInput #submit {
+    font-size: 12px;
+    font-family: var(--fonts);
+    text-decoration: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    color: var(--white);
+    display: inline-block;
+    padding: 0.4em 1em;
+    border: 0.1em solid #3e65b3;
+    border-radius: 0.38em;
+    background-image: linear-gradient(#62a6ed, #4b78d6);
+    cursor: pointer;
+}
+
+#labelInput #submit:hover {
+    box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important;
+}
+
+dialog {
+    box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important;
+    border: none;
+    border-radius: 0.38em;
+}
+
+#labelInput input {
+    border-radius: 0.38em;
+}
