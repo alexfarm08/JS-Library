@@ -27,14 +27,6 @@ function addBookToLibrary(title, author, pages, read, myLibrary) {
     myLibrary.push(title)
 }
 
-addBookToLibrary("harry potter1", "jk rolling", 255, "Read", myLibrary);
-totalNumBooks++;
-addBookToLibrary("harry potter2", "jk rolling", 255, "Read", myLibrary);
-totalNumBooks++;
-addBookToLibrary("harry potter3", "jk rolling", 255, "Read", myLibrary);
-totalNumBooks++;
-
-
 // LOOP OVER ARRAY AND DISPLAY BOOKS
 function displayBooks(myLibrary) {
 
@@ -165,8 +157,6 @@ document.getElementById("submit").onclick = function() {
 closeForm.addEventListener("click", () => {
     dialog.close();
 })
-
-displayBooks(myLibrary);
 
 //LOOP ADDS EVENT LISTENER TO ALL DELETE BUTTONS
 for (let j = 0; j < myLibrary.length; j++) {
