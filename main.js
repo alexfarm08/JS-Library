@@ -27,11 +27,11 @@ function addBookToLibrary(title, author, pages, read, myLibrary) {
     myLibrary.push(title)
 }
 
-addBookToLibrary("harry potter1", "jk rolling", 255, "read", myLibrary);
+addBookToLibrary("harry potter1", "jk rolling", 255, "Read", myLibrary);
 totalNumBooks++;
-addBookToLibrary("harry potter2", "jk rolling", 255, "read", myLibrary);
+addBookToLibrary("harry potter2", "jk rolling", 255, "Read", myLibrary);
 totalNumBooks++;
-addBookToLibrary("harry potter3", "jk rolling", 255, "read", myLibrary);
+addBookToLibrary("harry potter3", "jk rolling", 255, "Read", myLibrary);
 totalNumBooks++;
 
 
@@ -47,20 +47,25 @@ function displayBooks(myLibrary) {
         const bookCardAuthor = document.createElement('p');  
         const bookCardPages = document.createElement('p');  
         const bookCardRead = document.createElement('p');
+        bookCardRead.setAttribute('id', `readText${i}`);
+        const readBtn = document.createElement('button');
         const deleteBookBtn = document.createElement('button');
-        deleteBookBtn.setAttribute('id', `deleteBookBtn${i}`); 
+        deleteBookBtn.setAttribute('id', `deleteBookBtn${i}`);
+        readBtn.setAttribute('id', `readBtn${i}`); 
         
         bookCardTitle.textContent = myLibrary[i].title;
         bookCardAuthor.textContent = myLibrary[i].author;
         bookCardPages.textContent = myLibrary[i].pages;
         bookCardRead.textContent = myLibrary[i].read;
         deleteBookBtn.innerText = "Remove Book";
+        readBtn.innerText = "Read";
 
         bookCards.appendChild(bookCardTitle);
         bookCards.appendChild(bookCardAuthor);
         bookCards.appendChild(bookCardPages);
         bookCards.appendChild(bookCardRead);
         bookCards.appendChild(deleteBookBtn);
+        bookCards.appendChild(readBtn);
         bookCards.setAttribute('id', `${myLibrary[i].id}`);
 
        const container = document.getElementById('container');
@@ -103,20 +108,25 @@ document.getElementById("submit").onclick = function() {
             const bookCardAuthor = document.createElement('p');  
             const bookCardPages = document.createElement('p');  
             const bookCardRead = document.createElement('p');
+            bookCardRead.setAttribute('id', `readText${i}`);
+            const readBtn = document.createElement('button');
             const deleteBookBtn = document.createElement('button');
-            deleteBookBtn.setAttribute('id', `deleteBookBtn${i}`); 
+            deleteBookBtn.setAttribute('id', `deleteBookBtn${i}`);
+            readBtn.setAttribute('id', `readBtn${i}`); 
             
             bookCardTitle.textContent = myLibrary[i].title;
             bookCardAuthor.textContent = myLibrary[i].author;
             bookCardPages.textContent = myLibrary[i].pages;
             bookCardRead.textContent = myLibrary[i].read;
             deleteBookBtn.innerText = "Remove Book";
+            readBtn.innerText = "Read";
 
             bookCards.appendChild(bookCardTitle);
             bookCards.appendChild(bookCardAuthor);
             bookCards.appendChild(bookCardPages);
             bookCards.appendChild(bookCardRead);
             bookCards.appendChild(deleteBookBtn);
+            bookCards.appendChild(readBtn);
             bookCards.setAttribute('id', `${myLibrary[i].id}`);
 
             const container = document.getElementById('container');
@@ -143,5 +153,22 @@ for (let j = 0; j < myLibrary.length; j++) {
         myLibrary.splice((j), 1);
         console.log(myLibrary);
         deleteIndex.parentNode.removeChild(deleteIndex);
+    });
+}
+
+//LOOP ADDS EVENT LISTENER TO ALL READ BUTTONS
+for (let k = 0; k < myLibrary.length; k++) {
+    const btnRead = document.getElementById(`readBtn${k}`);
+    btnRead.addEventListener('click', () => {
+        const changeReadText = document.getElementById(`readText${k}`);
+        if (myLibrary[k].read === "Read") {
+            myLibrary[k].read = "Not Read";
+            changeReadText.textContent = "Not Read";
+        }
+        else if (myLibrary[k].read === "Not Read") {
+            myLibrary[k].read = "Read";
+            changeReadText.textContent = "Read";
+        }
+        console.log(myLibrary[k].read);
     });
 }
